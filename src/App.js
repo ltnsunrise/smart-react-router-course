@@ -78,11 +78,14 @@ const AuthorizedLayout = () => (
 
 const UnauthorizedLayout = () => (
   <div className='unauthorized-layout'>
-    <Switch>
-      <Route path='/' component={LoginPage} />
-    </Switch>
+    <LoginPage />
   </div>
 );
+// <div className="unauthorized-layout">
+//   <Switch>
+//     <Route path="/" component={LoginPage} />
+//   </Switch>
+// </div>
 
 const DashboardLayout = () => (
   <div className='dashboard-layout'>
@@ -114,8 +117,8 @@ const ProductsLayout = () => {
   return (
     <div className='products-layout'>
       <Switch>
-        <Route path={`${path}`} component={ProductsPage} exact />
         <Route path={`${path}/:productId`} component={ProductsSubLayout} />
+        <Route path={`${path}`} component={ProductsPage} />
       </Switch>
     </div>
   );
@@ -125,7 +128,7 @@ const ProductsSubLayout = () => {
   return (
     <div className='products-layout'>
       <Switch>
-        <Route path={`${path}`} component={ProductDetailPage} exact />
+        <Route path={`${path}`} component={ProductDetailPage} />
         <Route path={`${path}/overview`}>Overview</Route>
         <Route
           path={`${path}/database/:databaseType`}
